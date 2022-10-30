@@ -1,6 +1,6 @@
 {% import 'roles/vars.sls' as roles with context -%}
 
-{% if grains['roles']['_role'] == 'worker' && grain['roles']['_service'] == 'kubernetes' %}
+{% if grains['roles']['_role'] == 'worker' and grain['roles']['_service'] == 'kubernetes' %}
 # k8s_node_draim:
 #     kubernetes.node_status:
 #       - node_name: {{ roles['hostname'] }}
