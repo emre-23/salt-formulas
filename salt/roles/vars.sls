@@ -1,0 +1,1 @@
+{% set hostname = salt['grains.get']('roles:_hostname') or salt['grains.get']('roles:_name') -%}

@@ -6,7 +6,7 @@
 #       - node_name: {{ roles['hostname'] }}
 #       - availability: drain
 
-k8s_node_draim:
+k8s_node_drain:
   cmd.run:
     - name: kubectl drain {{ roles['hostname'] }} --ignore-daemonsets --delete-emptydir-data
 
