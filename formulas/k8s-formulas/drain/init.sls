@@ -1,6 +1,6 @@
 {% import 'roles/vars.sls' as roles with context -%}
 
-{% if grains['roles']['_role'] == 'worker' and grain['roles']['_service'] == 'kubernetes' %}
+{% if grains['roles']['_role'] == 'master' and grain['roles']['_service'] == 'kubernetes' %}
 # k8s_node_draim:
 #     kubernetes.node_status:
 #       - node_name: {{ roles['hostname'] }}
@@ -8,7 +8,8 @@
 
 k8s_node_drain:
   cmd.run:
-    - name: kubectl drain {{ roles['hostname'] }} --ignore-daemonsets --delete-emptydir-data
+    # - name: kubectl drain {{ roles['hostname'] }} --ignore-daemonsets --delete-emptydir-data
+    - name: echo {{ roles['hostname'] }}
 
 
 {% endif %}
